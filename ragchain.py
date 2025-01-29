@@ -50,8 +50,19 @@ class RAGChain:
         self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
 
     def _load_and_process_documents(self):
-        loader = PyMuPDFLoader(self.document_folder)
-        documents = loader.load_and_split()
+        """Load and process all documents from the folder and its sub-folders"""
+        documents = []
+        
+        # Traverse the document_folder recursively and load all documents
+        for dirpath, _, filenames in os.walk(self.document_folder):
+            for filename in filenames:
+                # Ensure the file is a PDF or a document type you want to process
+                if filename.endswith(".pdf"):  # You can add more extensions if needed
+                    filepath = os.path.join(dirpath, filename)
+                    #print(f"Loading document: {filepath}")  # Debugging statement
+                    loader = PyMuPDFLoader(filepath)
+                    documents.extend(loader.load_and_split())  # Add loaded documents to the list
+
         self.chunks = self.text_splitter.split_documents(documents)
         self.vector_store = FAISS.from_documents(
             documents=self.chunks,
