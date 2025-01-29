@@ -18,8 +18,6 @@ class RAGChain:
         chunk_size: int = 100,
         chunk_overlap: int = 10,
         document_folder: Optional[str] = None):
-        # Configure environment
-        self.configure_environment()
         
         self.model_name = model_name
         self.temperature = temperature
@@ -27,11 +25,18 @@ class RAGChain:
         self.chunk_overlap = chunk_overlap
         self.document_folder = document_folder
         
+        # Configure environment
+        self.configure_environment()
+        
         # Initialize components
         self.llm = None
         self.embeddings = None
-        self.textsplitter = None
-        self.vectorstore = None
+        self.text_splitter = None
+        self.vector_store = None
+        
+        self._initialize_components()
+        self._load_and_process_documents()
+        self.setup_rag_chain()
         
     def configure_environment(self):
         load_dotenv()
@@ -45,21 +50,15 @@ class RAGChain:
         self.llm = ChatOpenAI(model_name=self.model_name, temperature=self.temperature)
         self.embeddings = OpenAIEmbeddings()
         self.textsplitter = RecursiveCharacterTextSplitter(chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
-        
-    def load_documents(self):
-        """Load PDF document from a directory"""
-        # Load only PDF documents
-        loader = PyPDFLoader(self.document_folder)
-        # Split the pdf into pages
-        documents = loader.load_and_split()
-        return documents
     
-    def process_documents(self, documents) -> None:
+    def _load_and_process_documents(self):
+        loader = PyPDFLoader(self.document_folder)
+        documents = loader.load_and_split()
         chunks = self.textsplitter.split_documents(documents)
         self.vectorstore = FAISS.from_documents(
             documents=chunks,
             embedding=self.embeddings)
-    
+        
     def format_docs(self, docs):
         return "\n\n".join(doc.page_content for doc in docs)
         
