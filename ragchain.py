@@ -2,14 +2,12 @@ from dotenv import load_dotenv
 from typing import Optional
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader, PyMuPDFLoader
 from langchain_community.vectorstores import FAISS
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-
-
 
 class RAGChain:
     def __init__(self,
@@ -49,21 +47,24 @@ class RAGChain:
         """Initialize LangChain components"""
         self.llm = ChatOpenAI(model_name=self.model_name, temperature=self.temperature)
         self.embeddings = OpenAIEmbeddings()
-        self.textsplitter = RecursiveCharacterTextSplitter(chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
-    
+        self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
+
     def _load_and_process_documents(self):
-        loader = PyPDFLoader(self.document_folder)
+        loader = PyMuPDFLoader(self.document_folder)
         documents = loader.load_and_split()
-        chunks = self.textsplitter.split_documents(documents)
-        self.vectorstore = FAISS.from_documents(
-            documents=chunks,
+        self.chunks = self.text_splitter.split_documents(documents)
+        self.vector_store = FAISS.from_documents(
+            documents=self.chunks,
             embedding=self.embeddings)
+    
+    def get_chunk_count(self):
+        return len(self.chunks) if self.chunks else 0
         
     def format_docs(self, docs):
         return "\n\n".join(doc.page_content for doc in docs)
         
     def setup_rag_chain(self, k: int = 3):
-        retriever = self.vectorstore.as_retriever(search_kwargs={"k": k})
+        retriever = self.vector_store.as_retriever(search_kwargs={"k": k})
         # Define custom prompt
         template = """Answer the question based only on the following context:
         {context}
