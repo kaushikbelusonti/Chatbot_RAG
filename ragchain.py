@@ -1,13 +1,20 @@
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning, module='tqdm')
+
+import os
+# Set tokenizers parallelism before importing any HuggingFace components
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 from dotenv import load_dotenv
 from typing import Optional
-import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader, PyMuPDFLoader
+from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_community.vectorstores import FAISS
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_huggingface import HuggingFaceEmbeddings
 
 class RAGChain:
     def __init__(self,
@@ -46,7 +53,9 @@ class RAGChain:
     def _initialize_components(self):
         """Initialize LangChain components"""
         self.llm = ChatOpenAI(model_name=self.model_name, temperature=self.temperature)
-        self.embeddings = OpenAIEmbeddings()
+        # Using HuggingFace Sentence Transformers for embeddings
+        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        #self.embeddings = OpenAIEmbeddings()
         self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
 
     def _load_and_process_documents(self):
