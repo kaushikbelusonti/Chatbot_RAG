@@ -17,12 +17,28 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_huggingface import HuggingFaceEmbeddings
 
 class RAGChain:
+    """
+    Retrieval Augmented Generation (RAG) Chain for document processing and question answering.
+    Supports both OpenAI and HuggingFace models for embeddings and LLM capabilities.
+    """
     def __init__(self,
         model_name: str = 'gpt-3.5-turbo', 
         temperature: float = 0,
         chunk_size: int = 100,
         chunk_overlap: int = 10,
         document_folder: Optional[str] = None):
+        """
+        Initialize the RAG Chain with specified parameters.
+        
+        Args:
+            model_name (str): Name of the LLM model to use
+            temperature (float): Temperature for LLM responses
+            chunk_size (int): Size of text chunks for processing
+            chunk_overlap (int): Overlap between chunks
+            document_folder (str, optional): Folder containing documents to process
+            use_openai_embeddings (bool): Whether to use OpenAI embeddings instead of HuggingFace
+            embedding_model (str): HuggingFace model to use for embeddings
+        """
         
         self.model_name = model_name
         self.temperature = temperature

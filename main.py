@@ -1,7 +1,8 @@
 import streamlit as st
 from ragchain import RAGChain
 import time
-from langchain.callbacks import get_openai_callback  # Import OpenAI callback
+from langchain_community.callbacks.manager import get_openai_callback  # Import OpenAI callback
+#from langchain.callbacks import get_openai_callback  # Import OpenAI callback
 
 
 # Set Streamlit Page Configuration
@@ -17,7 +18,7 @@ def load_rag_chain():
         temperature=0,
         chunk_size=100,
         chunk_overlap=10,
-        document_folder='BhagvadGita_Reduced.pdf')
+        document_folder='/Users/kaushikbelusonti/Chatbot_RAG/Documents')
 
 # Load the RAG Chain instance
 chain = load_rag_chain()
