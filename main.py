@@ -16,6 +16,7 @@ st.title("📖 RAGChain: Ask Questions from Documents")
 def load_rag_chain():
     return RAGChain(model_name='gpt-3.5-turbo', 
         temperature=0,
+        use_openai_embeddings=False,
         chunk_size=100,
         chunk_overlap=10,
         document_folder='/Users/kaushikbelusonti/Chatbot_RAG/Documents')
