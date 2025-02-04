@@ -1,0 +1,8 @@
+2025-02-04 09:40:57,363 - rag_chain_error - ERROR - Error configuring environment: str(e)
+Stack Trace: None
+2025-02-04 09:41:32,628 - rag_chain_error - ERROR - Error configuring environment: Missing required environment variables: OPENAI_API_KEY
+Stack Trace: None
+2025-02-04 10:23:32,344 - rag_chain_error - ERROR - Error initializing components: name 'RecursiveCharacterTextSplitte' is not defined
+Stack Trace: None
+2025-02-04 11:52:15,445 - rag_chain_error - ERROR - Error in document processing: No PDF files found
+Stack Trace: None

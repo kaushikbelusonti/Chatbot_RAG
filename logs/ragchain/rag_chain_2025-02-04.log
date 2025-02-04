@@ -1,0 +1,107 @@
+2025-02-04 00:19:40,949 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:21:20,172 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:22:19,997 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:23:18,409 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:24:12,952 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:24:50,581 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:24:50,581 - rag_chain - INFO - Environment configured successfully
+2025-02-04 00:25:56,967 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:28:35,411 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:32:27,707 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:32:32,077 - rag_chain - INFO - Components initialized successfully
+2025-02-04 00:33:57,639 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 00:34:01,883 - rag_chain - INFO - Components initialized successfully
+2025-02-04 00:36:00,871 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 09:40:57,362 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 09:41:32,627 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 09:42:32,036 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 09:42:32,036 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 09:42:36,785 - rag_chain - INFO - Components initialized successfully
+2025-02-04 10:20:06,885 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 10:20:06,885 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 10:20:12,316 - rag_chain - INFO - Using HuggingFace Embeddings with model name
+2025-02-04 10:20:12,318 - rag_chain - INFO - Components initialized successfully
+2025-02-04 10:22:26,945 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 10:22:26,946 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 10:22:26,979 - rag_chain - INFO - Using OpenAI embeddings
+2025-02-04 10:22:26,979 - rag_chain - INFO - Components initialized successfully
+2025-02-04 10:22:55,340 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 10:22:55,340 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 10:22:59,140 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 10:22:59,141 - rag_chain - INFO - Components initialized successfully
+2025-02-04 10:23:28,661 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 10:23:28,661 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 10:23:32,343 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 10:41:12,035 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 10:41:12,036 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 10:41:17,311 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 10:41:17,312 - rag_chain - INFO - Components initialized successfully
+2025-02-04 11:50:15,434 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 11:50:15,435 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 11:50:21,933 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 11:50:21,934 - rag_chain - INFO - Components initialized successfully
+2025-02-04 11:50:21,934 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_1of5/Bhagavad-Gita_As_It_Is-42-51.pdf
+2025-02-04 11:50:22,065 - rag_chain - INFO - Created 188 chunks from 1 documents
+2025-02-04 11:50:22,573 - rag_chain - INFO - Created 188 chunks from 1 documents
+2025-02-04 11:50:57,523 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 11:50:57,523 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 11:51:01,105 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 11:51:01,105 - rag_chain - INFO - Components initialized successfully
+2025-02-04 11:51:01,105 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_1of5/Bhagavad-Gita_As_It_Is-42-51.pdf
+2025-02-04 11:51:01,217 - rag_chain - INFO - Created 188 chunks from 1 documents
+2025-02-04 11:51:01,683 - rag_chain - INFO - Vector store created successfully
+2025-02-04 11:52:12,313 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 11:52:12,313 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 11:52:15,445 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 11:52:15,445 - rag_chain - INFO - Components initialized successfully
+2025-02-04 11:53:20,665 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 11:53:20,666 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 11:53:23,592 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 11:53:23,592 - rag_chain - INFO - Components initialized successfully
+2025-02-04 11:53:23,593 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_2of5/Bhagavad-Gita_As_It_Is-52-61.pdf
+2025-02-04 11:53:23,702 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_3of5/Bhagavad-Gita_As_It_Is-62-71.pdf
+2025-02-04 11:53:23,725 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_4of5/Bhagavad-Gita_As_It_Is-72-81.pdf
+2025-02-04 11:53:23,751 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_1of5/Bhagavad-Gita_As_It_Is-42-51.pdf
+2025-02-04 11:53:23,773 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_5of5/Bhagavad-Gita_As_It_Is-82-88.pdf
+2025-02-04 11:53:23,796 - rag_chain - INFO - Created 925 chunks from 5 documents
+2025-02-04 11:53:25,190 - rag_chain - INFO - Vector store created successfully
+2025-02-04 12:12:33,616 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 12:12:33,616 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 12:12:38,095 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 12:12:38,095 - rag_chain - INFO - Components initialized successfully
+2025-02-04 12:12:38,095 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_2of5/Bhagavad-Gita_As_It_Is-52-61.pdf
+2025-02-04 12:12:38,221 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_3of5/Bhagavad-Gita_As_It_Is-62-71.pdf
+2025-02-04 12:12:38,244 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_4of5/Bhagavad-Gita_As_It_Is-72-81.pdf
+2025-02-04 12:12:38,271 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_1of5/Bhagavad-Gita_As_It_Is-42-51.pdf
+2025-02-04 12:12:38,292 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_5of5/Bhagavad-Gita_As_It_Is-82-88.pdf
+2025-02-04 12:12:38,316 - rag_chain - INFO - Created 925 chunks from 5 documents
+2025-02-04 12:12:39,832 - rag_chain - INFO - Vector store created successfully
+2025-02-04 12:12:39,833 - rag_chain - INFO -  RAG Chain setup completed
+2025-02-04 12:14:49,038 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 12:14:49,039 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 12:14:52,479 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 12:14:52,479 - rag_chain - INFO - Components initialized successfully
+2025-02-04 12:14:52,479 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_2of5/Bhagavad-Gita_As_It_Is-52-61.pdf
+2025-02-04 12:14:52,596 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_3of5/Bhagavad-Gita_As_It_Is-62-71.pdf
+2025-02-04 12:14:52,619 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_4of5/Bhagavad-Gita_As_It_Is-72-81.pdf
+2025-02-04 12:14:52,645 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_1of5/Bhagavad-Gita_As_It_Is-42-51.pdf
+2025-02-04 12:14:52,666 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_5of5/Bhagavad-Gita_As_It_Is-82-88.pdf
+2025-02-04 12:14:52,688 - rag_chain - INFO - Created 925 chunks from 5 documents
+2025-02-04 12:14:54,104 - rag_chain - INFO - Vector store created successfully
+2025-02-04 12:14:54,106 - rag_chain - INFO - RAG Chain setup completed
+2025-02-04 12:14:54,106 - rag_chain - INFO - Processing query: Who is Krishna
+2025-02-04 12:14:55,576 - rag_chain - INFO - Query processed successfully
+2025-02-04 12:21:49,492 - rag_chain - INFO - Initializing RAGChain with model: gpt-3.5-turbo
+2025-02-04 12:21:49,493 - rag_chain - INFO - Environment Configured Successfully
+2025-02-04 12:21:53,969 - rag_chain - INFO - Using HuggingFace Embeddings
+2025-02-04 12:21:53,969 - rag_chain - INFO - Components initialized successfully
+2025-02-04 12:21:53,969 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_2of5/Bhagavad-Gita_As_It_Is-52-61.pdf
+2025-02-04 12:21:54,083 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_3of5/Bhagavad-Gita_As_It_Is-62-71.pdf
+2025-02-04 12:21:54,105 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_4of5/Bhagavad-Gita_As_It_Is-72-81.pdf
+2025-02-04 12:21:54,131 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_1of5/Bhagavad-Gita_As_It_Is-42-51.pdf
+2025-02-04 12:21:54,152 - rag_chain - INFO - Loading document: /Users/kaushikbelusonti/Chatbot_RAG/Documents/Ch1_5of5/Bhagavad-Gita_As_It_Is-82-88.pdf
+2025-02-04 12:21:54,175 - rag_chain - INFO - Created 925 chunks from 5 documents
+2025-02-04 12:21:55,668 - rag_chain - INFO - Vector store created successfully
+2025-02-04 12:21:55,669 - rag_chain - INFO - RAG Chain setup completed
+2025-02-04 12:22:03,514 - rag_chain - INFO - Processing query: Who is Krishna?
+2025-02-04 12:22:06,353 - rag_chain - INFO - Query processed successfully
