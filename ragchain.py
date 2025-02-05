@@ -15,10 +15,10 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_huggingface import HuggingFaceEndpoint
+from langchain_huggingface import HuggingFaceEmbeddings, HuggingFaceEndpoint
 from logger_config import LoggerConfig
 from pathlib import Path
+from transformers import AutoTokenizer
 
 # Initialize logging
 logger_config = LoggerConfig(log_dir="logs/ragchain")
@@ -67,6 +67,7 @@ class RAGChain:
         self.embeddings = None
         self.text_splitter = None
         self.vector_store = None
+        self.huggingface_tokenizer = None
         
         self._initialize_components()
         self._load_and_process_documents()
@@ -99,6 +100,8 @@ class RAGChain:
                 self.llm = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=self.temperature)
                 logger.info("Using OpenAI LLM")
             else:
+                huggingface_modelname = "HuggingFaceH4/zephyr-7b-beta"
+                self.huggingface_tokenizer = AutoTokenizer.from_pretrained(huggingface_modelname) 
                 self.llm = HuggingFaceEndpoint(endpoint_url="https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta",
                     huggingfacehub_api_token=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
                     temperature=self.temperature + 0.001)

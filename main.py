@@ -2,8 +2,6 @@ import streamlit as st
 from ragchain import RAGChain
 import time
 from langchain_community.callbacks.manager import get_openai_callback  # Import OpenAI callback
-#from langchain.callbacks import get_openai_callback  # Import OpenAI callback
-
 
 # Set Streamlit Page Configuration
 st.set_page_config(page_title="RAGChain QA", layout="wide")
@@ -49,5 +47,12 @@ if question:
     # Display performance metric
     st.subheader("📊 Performance Metrics:")
     st.write(f"Latency: {round(stop_time - start_time, 2)} seconds")
-    st.write(f"Tokens Used: {cb.total_tokens} [{cb.prompt_tokens} Prompt + {cb.completion_tokens} Completion]")
+    if not chain.use_openai_llm:
+        # Get the input tokens used
+        input_token_count = len(chain.huggingface_tokenizer.encode(question, add_special_tokens=True))
+        # Get the completion tokens used
+        response_token_count = len(chain.huggingface_tokenizer.encode(response, add_special_tokens=True))
+        st.write(f"Tokens Used: {input_token_count+response_token_count} [{input_token_count} Prompt + {response_token_count} Completion]")
+    else:
+        st.write(f"Tokens Used: {cb.total_tokens} [{cb.prompt_tokens} Prompt + {cb.completion_tokens} Completion]")
     st.write(f"Total Cost: ${round(cb.total_cost, 4)}")
