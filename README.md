@@ -44,7 +44,7 @@ LANGCHAIN_API_KEY=your_langchain_api_key
 #### Running the Application
 To run the chatbot application, use the following command:
 ```bash
-streamlit run app.py
+streamlit run main.py
 ```
 This will launch a Streamlit app in your browser. You can enter a query, and the chatbot will respond based on the context from the loaded PDF document.
 
