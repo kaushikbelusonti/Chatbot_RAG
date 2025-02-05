@@ -16,6 +16,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEndpoint
 from logger_config import LoggerConfig
 from pathlib import Path
 
@@ -30,9 +31,9 @@ class RAGChain:
     Supports both OpenAI and HuggingFace models for embeddings and LLM capabilities.
     """
     def __init__(self,
-        model_name: str = 'gpt-3.5-turbo', 
-        temperature: float = 0,
-        use_openai_embeddings = False,
+        use_openai_llm: bool = False,
+        llm_temperature: float = 0,
+        use_openai_embeddings: bool = False,
         chunk_size: int = 100,
         chunk_overlap: int = 10,
         document_folder: Optional[str] = None):
@@ -40,23 +41,23 @@ class RAGChain:
         Initialize the RAG Chain with specified parameters.
         
         Args:
-            model_name (str): Name of the LLM model to use
-            temperature (float): Temperature for LLM responses
+            use_openai_llm (bool): Whether to use OpenAI LLM or LLM from HuggingFace
+            llm_temperature (float): Temperature for LLM responses
+            use_openai_embeddings (bool): Whether to use OpenAI embeddings instead of HuggingFace
             chunk_size (int): Size of text chunks for processing
             chunk_overlap (int): Overlap between chunks
             document_folder (str, optional): Folder containing documents to process
-            use_openai_embeddings (bool): Whether to use OpenAI embeddings instead of HuggingFace
             embedding_model (str): HuggingFace model to use for embeddings
         """
-        
-        self.model_name = model_name
-        self.temperature = temperature
+
+        self.use_openai_llm = use_openai_llm
+        self.temperature = llm_temperature
         self.use_openai_embeddings = use_openai_embeddings
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
         self.document_folder = document_folder
         
-        logger.info(f"Initializing RAGChain with model: {model_name}")
+        logger.info(f"Initializing RAGChain")
         
         # Configure environment
         self.configure_environment()
@@ -74,7 +75,11 @@ class RAGChain:
     def configure_environment(self):
         try:
             load_dotenv()
-            required_vars = ['LANGCHAIN_TRACING', 'LANGCHAIN_ENDPOINT', 'LANGCHAIN_API_KEY', 'OPENAI_API_KEY']
+            required_vars = []
+            if self.use_openai_llm:
+                required_vars.extend(['OPENAI_API_KEY', 'LANGCHAIN_TRACING', 'LANGCHAIN_ENDPOINT', 'LANGCHAIN_API_KEY'])
+            else:
+                required_vars.append('HUGGINGFACEHUB_API_TOKEN')
             
             missing_vars = [var for var in required_vars if not os.getenv(var)]
             
@@ -90,7 +95,14 @@ class RAGChain:
         
         try:
             # Initialize LLM
-            self.llm = ChatOpenAI(model_name=self.model_name, temperature=self.temperature)
+            if self.use_openai_llm:
+                self.llm = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=self.temperature)
+                logger.info("Using OpenAI LLM")
+            else:
+                self.llm = HuggingFaceEndpoint(endpoint_url="https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta",
+                    huggingfacehub_api_token=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
+                    temperature=self.temperature + 0.001)
+                logger.info("Using HuggingFace LLM")
             
             # Initialize embeddings based on configurations
             if self.use_openai_embeddings:
@@ -187,7 +199,7 @@ class RAGChain:
             logger.info(f"Processing query: {question}")
             response = self.rag_chain.invoke(question)
             logger.info("Query processed successfully")
-            return self.rag_chain.invoke(question)
+            return response
         except Exception as e:
             error_logger.error(f"Error processing query: {str(e)}")
             raise

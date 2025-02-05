@@ -14,8 +14,9 @@ st.title("📖 RAGChain: Ask Questions from Documents")
 # Initialize RAGChain instance only once
 @st.cache_resource
 def load_rag_chain():
-    return RAGChain(model_name='gpt-3.5-turbo', 
-        temperature=0,
+    return RAGChain(
+        use_openai_llm = False,
+        llm_temperature=0,
         use_openai_embeddings=False,
         chunk_size=100,
         chunk_overlap=10,
