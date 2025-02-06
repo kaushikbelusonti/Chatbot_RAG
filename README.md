@@ -24,6 +24,12 @@ pip install -r requirements.txt
 
 #### Setup
 **API Keys:** Set up your environment variables in a .env file for OPENAI_API_KEY and LANGCHAIN_API_KEY:
+If using open-source LLM and embedding models, only HuggingFace API key (token) is required.
+```bash
+HUGGINGFACEHUB_API_TOKEN=your_huggingfacehub_api_token
+
+```
+If using OpenAI LLM, then OpenAI and LangChain API keys are required
 ```bash
 OPENAI_API_KEY=your_openai_api_key
 LANGCHAIN_API_KEY=your_langchain_api_key
